@@ -5,12 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Calculator app</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+  <title> Calculator app | Maria Halvarsson </title>
   <link rel="stylesheet" href="main.css">
 </head>
+
 <body>
-  <input type="text" id="num-input" >
+  <p id="secret-message"></p>
+  
+  <div class="main-container">
+    <div class="text-container">
+    <p class="text">calc</p>
+    <div class="theme-toggle">
+      
+      <p class="toggle-text">THEME</p>
+    <div>
+      <label class="switch">
+        <input type="checkbox" name="theme" id="light">
+        <span class="slider round"></span>
+      </label>
+    </div>
+  </div>
+</div>
+  <input type="text" id="num-input" disabled>
   <div class="calculator-body">
 
     <button id="btn-7" class="btn">7</button>
@@ -37,7 +56,7 @@
     <button id="resultbtn" class="resultbtn">=</button>
     
   </div>
-  
+</div>
   <script src="main.js"></script>
 </body>
 </html>
