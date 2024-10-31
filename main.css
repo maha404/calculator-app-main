@@ -1,17 +1,57 @@
+:root {
+    --clr-body-bg: #3B4664;
+    --clr-calc-bg: #252D44;
+    --clr-bg-delreset: #647299;
+    --clr-bg-resultbtn: #D13F30;
+    --clr-bg-buttons: #EAE3DB;
+    --clr-border-buttons: #B5A499;
+    --clr-border-delreset: #424E75;
+    --clr-border-resultbtn: #992416;
+    --clr-bg-input: #181F32;
+    --clr-input-text: white;
+    --clr-text: #EAE3DB;
+    --clr-hover-resultbtn: #F96C5B;
+    --clr-hover-delreset: #A2B3E2;
+    --clr-bg-slider: #252D44;
+    --clr-slider: #FA6B5D;
+}
+
 body {
-    background-color: #3B4664;
+    background-color: var(--clr-body-bg);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 90vh;
     flex-direction: column;
+}
+
+.text {
+    color: var(--clr-text);
+    font-size: 1.5rem;
+    font-family: "League Spartan", sans-serif;
+    font-weight: bold;
+    margin-left: 0.4rem;
+}
+
+#secret-message {
+    color: var(--clr-text);
+    font-size: 1.5rem;
+    font-family: "League Spartan", sans-serif;
+    font-weight: bold;
+    margin: 0 0 0.4rem 0;
+    height: 2rem;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column; 
 }
 
 .calculator-body {
     margin-top: 1.5rem;
-    background-color: #252D44;
+    background-color: var(--clr-calc-bg);
     display: grid;
-    grid-template-columns: repeat(4, 4rem);
+    grid-template-columns: repeat(4, 3.5rem);
     row-gap: 0.8rem;
     column-gap: 0.8rem;
     padding: 1.5rem;
@@ -21,60 +61,177 @@ body {
 .btn {
     padding: 0.8rem 0.1rem 0.8rem 0.1rem;
     font-size: 1.7rem;
-    background-color: #EAE3DB;
+    background-color: var(--clr-bg-buttons);
     border: none;
     color: #4A505B;
-    border-radius: 0.5rem;
-    border-bottom: #B5A499 solid 0.3rem;
+    border-radius: 0.7rem;
+    border-bottom: var(--clr-border-buttons) solid 0.3rem;
     font-weight: bold;
     cursor: pointer;
+    font-family: "League Spartan", sans-serif;
 }
 
 input {
-    width: 17rem;
-    background-color: #181F32;
+    width: 16rem;
+    background-color: var(--clr-bg-input);
     border: none;
     font-size: 2rem;
-    color: white;
+    color: var(--clr-input-text);
     padding: 2rem;
-    border-radius: 0.5rem;
+    border-radius: 0.7rem;
+    font-family: "League Spartan", sans-serif;
 }
 
 #delbtn {
-    font-size: 1rem;
-    background-color: #647299;
+    font-size: 1.2rem;
+    background-color: var(--clr-bg-delreset);
     border: none;
-    border-bottom: solid #424E75 0.2rem;
-    border-radius: 0.5rem;
+    border-bottom: solid 0.2rem var(--clr-border-delreset);
+    border-radius: 0.4rem;
     color: white;
     font-weight: bold;
+    cursor: pointer;
+    font-family: "League Spartan", sans-serif;
+}
+
+#delbtn:hover, 
+#resetbtn:hover {
+    background-color: var(--clr-hover-delreset);
 }
 
 #resultbtn {
-    background-color: #D13F30;
+    background-color: var(--clr-bg-resultbtn);
     border: none;
-    border-bottom: solid 0.2rem #992416;
-    border-radius: 0.2rem;
+    border-bottom: solid 0.2rem var(--clr-border-resultbtn);
+    border-radius: 0.4rem;
     grid-column-start: 3;
     grid-column-end: 5;
     padding: 1rem 2rem 1rem 2rem;
     color: white;
-    font-size: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+#resultbtn:hover {
+    background-color: var(--clr-hover-resultbtn);
 }
 
 #resetbtn {
-    padding: 1rem 2rem 1rem 2rem;
+    padding: 1.3rem 2rem 1.3rem 2rem;
     grid-column-start: 1;
     grid-column-end: 3;
     font-weight: bold;
-    font-size: 1rem;
-    background-color: #647299;
+    font-size: 1.2rem;
+    background-color: var(--clr-bg-delreset);
     border: none;
-    border-bottom: solid #424E75 0.2rem;
+    border-bottom: solid var(--clr-border-delreset) 0.2rem;
     color: white;
-    border-radius: 0.2rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    font-family: "League Spartan", sans-serif;
 }
 
+.switch-text {
+    margin: 0 0 0 0;
+}
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    column-gap: 1rem;
+}
+
+.text-container {
+    display: flex;
+    column-gap: 8rem;
+    margin-left: 0.2rem;
+}
+
+.toggle-text {
+    font-size: 0.8rem;
+    color: var(--clr-text);
+    font-family: "League Spartan", sans-serif;
+    font-weight: bold;
+    margin-left: 0.4rem;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 1.5rem;
+}
+  
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+  
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--clr-bg-slider);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 1rem;
+    width: 1rem;
+    left: 0.2rem;
+    bottom: 4px;
+    background-color: var(--clr-slider);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+  
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+  
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+  
+.slider.round:before {
+    border-radius: 50%;
+}
+
+:root:has(input[type="checkbox"]:checked) {
+    --clr-body-bg: #E6E6E6;
+    --clr-calc-bg: #D3CDCD;
+    --clr-bg-delreset: #388187;
+    --clr-bg-resultbtn: #C85401;
+    --clr-bg-buttons: #E5E4E0;
+    --clr-border-buttons: #A69D90;
+    --clr-border-delreset: #1C6167;
+    --clr-border-resultbtn: #883A01;
+    --clr-bg-input: #EEEEEE;
+    --clr-input-text: #323228;
+    --clr-text: #393930;
+    --clr-hover-resultbtn: #FF8B38;
+    --clr-hover-delreset: #62B5BD;
+    --clr-bg-slider: #D3CDCD;
+    --clr-slider: #CD5402;
+}
 
 @media all and (min-width: 769px) {
     
@@ -82,19 +239,27 @@ input {
         background-color: #FFFFFF;
     }
 
+    .btn {   
+        font-size: 2.5rem;
+    }
+
     .calculator-body {
-        grid-template-columns: repeat(4, 8rem);
+        grid-template-columns: repeat(4, 6rem);
         row-gap: 1.5rem;
         column-gap: 1.5rem; 
     }
 
     input {
-        width: 35rem;
+        width: 27.5rem;
+        font-size: 3rem;
+        font-weight: bold;
     }
 
+    #resultbtn {
+       font-size: 1.5rem;
+    }
+
+    .text-container {
+        column-gap: 20.5rem;
+    }
 }
-
-
-
-
-
